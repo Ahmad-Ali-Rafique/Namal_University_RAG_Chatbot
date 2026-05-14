@@ -1,5 +1,5 @@
 import streamlit as st
-
+import os
 from utils.data_loader import load_namal_data
 from utils.vector_store import create_vector_store
 from utils.rag_chain import create_rag_response
@@ -20,6 +20,11 @@ st.write("Ask anything about Namal University")
 def setup_chatbot():
 
     docs = load_namal_data("data/namal_data.json")
+    
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    DATA_PATH = os.path.join(BASE_DIR, "data", "namal_data.json")
+
+    docs = load_namal_data(DATA_PATH)
 
     vector_store = create_vector_store(docs)
 
