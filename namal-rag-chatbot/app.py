@@ -19,8 +19,6 @@ st.write("Ask anything about Namal University")
 @st.cache_resource
 def setup_chatbot():
 
-    docs = load_namal_data("data/namal_data.json")
-    
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
     DATA_PATH = os.path.join(BASE_DIR, "data", "namal_data.json")
 
